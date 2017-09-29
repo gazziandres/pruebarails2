@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="row">
+  <div class="col-sm-12 text-xs-center bootstrap-welcome">
+    <% if user_signed_in? %>
+      <h1>Hola <%= current_user.email %> </h1>
+      <p><%= link_to 'logout', destroy_user_session_path(current_user), method: :delete %></p>
+      <p><%= link_to 'edit profile', edit_user_registration_path(current_user) %></p>
+    <% else %>
+      <p> <%= link_to 'Sign in', new_user_session_path %> </p>
+    <% end %>
+  </div>
+</div>
+
+  <div class="row">
+    <% @tareas.each_slice(4) do |row| %>
+      <% row.each do |tarea| %>
+        <div class="col">
+          <div class="card">
+            <%= image_tag tarea.photo, class: 'card-img-top' %>
+            <div class="body">
+              <h5> <%= tarea.name %> </h5>
+              <%= link_to "Ready", tarea_actions_path(tarea), class: 'btn btn-success', method: :post %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+      <div class="w-100" style="margin-top:20px"> </div>
+    <% end %>
+  </div>
+</div>

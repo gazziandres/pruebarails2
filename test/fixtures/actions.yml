@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  hecho: false
+  user: one
+  tarea: one
+
+two:
+  hecho: false
+  user: two
+  tarea: two

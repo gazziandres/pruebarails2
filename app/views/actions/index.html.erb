@@ -1,0 +1,14 @@
+
+
+<table class="table">
+  <% @actions.each do |action| %>
+    <tr>
+      <td> <%= action.tarea.name %> </td>
+      <td><%= link_to 'Destroy', tarea_action_path(action.tarea.id, action.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+  <tr>
+    <td> Tareas Listas: </td>
+    <td> <%= @actions.count %></td>
+  </tr>
+</table>
